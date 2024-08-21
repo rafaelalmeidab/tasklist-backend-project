@@ -29,18 +29,17 @@ services:
 
     # db mysql
     db:
-        image: mysql:5.7.22
-        platform: linux/x86_64
+        image: mysql:8.0
         restart: unless-stopped
         environment:
-            MYSQL_DATABASE: ${DB_DATABASE:-laravel}
-            MYSQL_ROOT_PASSWORD: ${DB_PASSWORD:-root}
-            MYSQL_PASSWORD: ${DB_PASSWORD:-userpass}
-            MYSQL_USER: ${DB_USERNAME:-username}
+            MYSQL_DATABASE: laraveldb
+            MYSQL_USER: root
+            MYSQL_ROOT_PASSWORD: root
+            MYSQL_PASSWORD: root
         volumes:
             - ./.docker/mysql/dbdata:/var/lib/mysql
         ports:
-            - "3388:3306"
+            - "3307:3306"  # Mapeia a porta 3307 no host para a porta 3306 no contêiner
         networks:
             - laravel
 

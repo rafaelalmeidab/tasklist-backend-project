@@ -7,7 +7,7 @@ RUN apt-get update && apt-get install -y \
     libzip-dev unzip git \
     && docker-php-ext-configure gd --with-freetype --with-jpeg \
     && docker-php-ext-install gd \
-    && docker-php-ext-install zip pdo pdo_mysql
+    && docker-php-ext-install zip pdo pdo_mysql mysqli
 
 # Instale o Composer
 COPY --from=composer:latest /usr/bin/composer /usr/bin/composer
