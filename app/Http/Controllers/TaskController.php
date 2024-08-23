@@ -19,12 +19,14 @@ class TaskController extends Controller
         $this->taskService = $taskService;
     }
 
-    public function index()
+    public function index(ProjectService $projectService): JsonResponse
     {
         $projects = (new ProjectService())->getAll();
 
-        return view('tasks.index', [
+        return response()->json([
+            'success' => true,
             'projects' => $projects,
+            'message' => "Projects retrieved successfully.",
         ]);
     }
 
