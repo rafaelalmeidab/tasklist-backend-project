@@ -24,9 +24,7 @@ class TaskController extends Controller
         $projects = (new ProjectService())->getAll();
 
         return response()->json([
-            'success' => true,
-            'projects' => $projects,
-            'message' => "Projects retrieved successfully.",
+            'projects' => $projects
         ]);
     }
 
